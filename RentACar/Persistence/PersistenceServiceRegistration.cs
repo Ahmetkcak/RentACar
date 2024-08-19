@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
+using Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ public static class PersistenceServiceRegistration
             options.UseInMemoryDatabase("InMemoryDb");
         });
 
-        services.AddScoped<IBrandRepository, IBrandRepository>();
+        services.AddScoped<IBrandRepository, BrandRepository>();
 
         return services;
     }
